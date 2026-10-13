@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frederic (Qian) Dai</title>
+<meta name="description" content="Frederic (Qian) Dai, Data Science student at NYU building AI agents, data pipelines and real-world products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+  :root {
+    --bg: #F2F3F5;
+    --card: #FFFFFF;
+    --border: #E3E6EC;
+    --ink: #141B33;
+    --body: #3B4256;
+    --muted: #5A6175;
+    --blue: #1A47DD;
+    --blue-dark: #0F2E9E;
+    --blue-soft: #E2E9FF;
+    --orange: #F2994A;
+    --green: #2E8B57;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--blue); }
+  a:hover { color: var(--blue-dark); }
+  h1, h2, h3, p { margin: 0; }
+
+  .page {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 40px 24px 64px;
+    display: grid;
+    grid-template-columns: 300px 300px minmax(0, 1fr);
+    gap: 36px;
+    align-items: start;
+  }
+  .col { display: flex; flex-direction: column; gap: 28px; min-width: 0; }
+
+  /* Profile */
+  .profile { display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center; }
+  .profile h1 { font-size: 28px; font-weight: 700; line-height: 1.15; }
+  .photo-wrap { position: relative; width: 188px; height: 188px; }
+  .photo { width: 188px; height: 188px; border-radius: 50%; object-fit: cover; display: block; box-shadow: 0 8px 24px rgba(20, 27, 51, 0.12); }
+  .wave { position: absolute; right: -46px; top: 64px; width: 72px; height: 72px; }
+  .links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .pill {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    min-height: 40px; padding: 0 16px; border-radius: 999px;
+    border: 3px solid #fff; font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .pill:hover { transform: translateY(-1px); }
+  .pill-li { background: #EAF0FF; color: var(--blue); box-shadow: 0 4px 12px rgba(26, 71, 221, .22); }
+  .pill-gh { background: #1F2430; color: #fff; box-shadow: 0 4px 12px rgba(31, 36, 48, .25); }
+  .pill-gh:hover { color: #fff; }
+  .intro { text-align: left; display: flex; flex-direction: column; gap: 10px; }
+  .degree { display: flex; align-items: center; gap: 8px; font-size: 17px; font-weight: 700; }
+  .intro p { font-size: 16px; line-height: 1.6; color: var(--body); }
+
+  /* Section headings */
+  .h2 { font-size: 20px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+  .hint { font-size: 13px; font-weight: 500; color: var(--muted); }
+
+  /* Hobbies */
+  .hobbies { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .hobby { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 6px; }
+  .hobby b { font-size: 14px; }
+  .hobby span { font-size: 13px; line-height: 1.45; color: var(--body); }
+
+  /* Timeline */
+  .timeline { position: relative; list-style: none; margin: 0; padding: 0 0 0 30px; display: flex; flex-direction: column; gap: 12px; }
+  .timeline::before { content: ""; position: absolute; left: 7px; top: 20px; bottom: 20px; width: 2px; border-radius: 2px; background: #D6DEF8; }
+  .role {
+    position: relative; width: 100%; text-align: left; font: inherit; cursor: pointer;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+    padding: 12px 14px; border-radius: 14px; border: 1px solid var(--border); background: var(--card);
+    transition: background .15s ease, box-shadow .15s ease, border-color .15s ease;
+  }
+  .role:hover { border-color: #B9C6EE; }
+  .role:focus-visible { outline: 3px solid #9DB2F5; outline-offset: 2px; }
+  .role::before {
+    content: ""; position: absolute; left: -31px; top: 15px; width: 16px; height: 16px; border-radius: 50%;
+    background: #fff; border: 3px solid var(--blue); box-shadow: 0 0 0 4px var(--bg);
+  }
+  .role .date { padding: 3px 10px; border-radius: 999px; background: var(--blue-soft); color: var(--blue); font-size: 12px; font-weight: 600; letter-spacing: .04em; }
+  .role .title { font-size: 15px; font-weight: 600; line-height: 1.3; color: var(--ink); }
+  .role[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); box-shadow: 0 8px 20px rgba(26, 71, 221, .25); }
+  .role[aria-pressed="true"]::before { background: var(--blue); }
+  .role[aria-pressed="true"] .date { background: #fff; }
+  .role[aria-pressed="true"] .title { color: #fff; }
+
+  /* Detail card */
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; box-shadow: 0 4px 14px rgba(20, 27, 51, 0.05); }
+  .detail { display: flex; flex-direction: column; gap: 12px; }
+  .detail[hidden] { display: none; }
+  .meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .meta .date { padding: 3px 10px; border-radius: 999px; background: var(--blue-soft); color: var(--blue); font-size: 12px; font-weight: 600; letter-spacing: .04em; }
+  .kind { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .detail h3 { font-size: 18px; font-weight: 700; line-height: 1.3; }
+  .detail p { font-size: 16px; line-height: 1.6; color: var(--body); }
+  .detail p.thanks { font-style: italic; }
+  .skills-label { font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+  .chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { display: inline-flex; align-items: center; gap: 7px; min-height: 34px; padding: 0 12px 0 4px; border-radius: 999px; background: #F6F8FE; border: 1px solid #D6DEF8; font-size: 14px; font-weight: 600; color: var(--ink); }
+  .ic { width: 26px; height: 26px; border-radius: 50%; background: var(--c, var(--blue)); color: #fff; display: inline-flex; align-items: center; justify-content: center; flex: none; font-size: 11px; font-weight: 700; }
+  .ic svg { width: 15px; height: 15px; }
+
+  /* Mind */
+  .mind ul { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .mind li { padding: 14px 16px; border-radius: 10px; background: #F6F8FE; font-size: 15px; line-height: 1.5; color: var(--ink); text-align: center; }
+
+  footer { text-align: center; font-size: 13px; color: var(--muted); padding: 0 24px 40px; }
+
+  /* Compact layout so the whole page fits a laptop screen */
+  @media (min-width: 1081px) {
+    .page { max-width: 1340px; padding: 22px 24px 20px; grid-template-columns: 320px 280px minmax(0, 1fr); gap: 30px; }
+    .col { gap: 16px; }
+    .profile { gap: 10px; }
+    .profile h1 { font-size: 24px; }
+    .photo-wrap, .photo { width: 124px; height: 124px; }
+    .wave { right: -38px; top: 34px; width: 52px; height: 52px; }
+    .pill { min-height: 34px; padding: 0 9px; font-size: 12.5px; border-width: 2px; gap: 5px; }
+    .links { gap: 6px; flex-wrap: nowrap; }
+    .intro { gap: 6px; }
+    .degree { font-size: 16px; }
+    .intro p { font-size: 14.5px; line-height: 1.5; }
+    .h2 { font-size: 18px; }
+    .hobbies { gap: 8px; }
+    .hobby { padding: 8px 10px; display: grid; grid-template-columns: 24px 1fr; grid-template-rows: auto 1fr; column-gap: 8px; row-gap: 1px; align-content: start; }
+    .hobby svg { width: 24px; height: 24px; grid-row: span 2; align-self: start; margin-top: 1px; }
+    .hobby b { font-size: 13px; }
+    .hobby span { font-size: 12px; line-height: 1.35; }
+    .timeline { gap: 8px; }
+    .timeline::before { top: 16px; bottom: 16px; }
+    .role { padding: 8px 12px; gap: 4px; border-radius: 12px; }
+    .role::before { top: 11px; }
+    .role .date { font-size: 11px; padding: 2px 8px; }
+    .role .title { font-size: 13.5px; }
+    .card { padding: 18px 20px; }
+    .detail { gap: 9px; }
+    .detail h3 { font-size: 17px; }
+    .detail p { font-size: 14.5px; line-height: 1.55; }
+    .chips { gap: 6px; }
+    .chip { min-height: 30px; font-size: 13px; padding: 0 10px 0 3px; }
+    .ic { width: 24px; height: 24px; }
+    .ic svg { width: 14px; height: 14px; }
+    .mind { padding: 14px 20px; }
+    .mind .h2 svg { width: 28px; height: 28px; }
+    .mind ul { margin-top: 10px; }
+    .mind li { padding: 10px 14px; font-size: 14px; }
+    footer { padding-bottom: 20px; }
+  }
+
+  @media (max-width: 1080px) {
+    .page { grid-template-columns: 280px minmax(0, 1fr); }
+    .col-timeline { grid-column: 2; }
+    .col-detail { grid-column: 1 / -1; }
+  }
+  @media (max-width: 720px) {
+    .page { grid-template-columns: minmax(0, 1fr); padding: 28px 16px 48px; gap: 28px; }
+    .col-timeline, .col-detail { grid-column: auto; }
+    .wave { right: -38px; top: 56px; width: 60px; height: 60px; }
+    .card { padding: 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pill, .role { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position: absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-db" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5.5" rx="7.5" ry="2.8"/><path d="M4.5 5.5v13c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-13"/><path d="M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8"/></symbol>
+    <symbol id="i-vector" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20L19 5"/><path d="M13 5h6v6"/><path d="M4 20l5-11"/><path d="M4 20l11-3"/></symbol>
+    <symbol id="i-chunks" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="5" rx="1.2"/><rect x="4" y="10" width="16" height="5" rx="1.2"/><rect x="4" y="17" width="10" height="4" rx="1.2"/></symbol>
+    <symbol id="i-pipe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="9" width="5" height="6" rx="1.2"/><rect x="16.5" y="9" width="5" height="6" rx="1.2"/><path d="M7.5 12h9"/><path d="M13.5 9.5L16 12l-2.5 2.5"/></symbol>
+    <symbol id="i-docsearch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21H11"/><path d="M13 3l5 5v2"/><circle cx="16" cy="16" r="3.2"/><path d="M18.4 18.4l2.3 2.3"/></symbol>
+    <symbol id="i-robot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V4.5"/><circle cx="12" cy="3.5" r="1"/><circle cx="9.5" cy="13" r="1" fill="currentColor"/><circle cx="14.5" cy="13" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-app" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8.5h18"/><path d="M10 12l4.5 2.5L10 17z" fill="currentColor"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15"/><path d="M5 19l8-8"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a5.5 5.5 0 0 0 5.5-5.5c0-3.5-5.5-9-5.5-9s-5.5 5.5-5.5 9A5.5 5.5 0 0 0 12 21z"/><path d="M12 2.5v3M9.5 4l2.5-2 2.5 2"/></symbol>
+    <symbol id="i-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 20V12M10 20V6M15 20v-9M20 20V9"/></symbol>
+    <symbol id="i-docchart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 17v-3M12 17v-5M15 17v-2"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v10"/><path d="M8 9l4 4 4-4"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></symbol>
+    <symbol id="i-network" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="7" r="2"/><circle cx="17" cy="5" r="2"/><circle cx="12" cy="13" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="18" cy="17" r="2"/><path d="M6 7l6 6M17 5l-5 8M12 13l-7 5M12 13l6 4" fill="none"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></symbol>
+    <symbol id="i-smile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 14.5c1 1.3 2.4 2 4 2s3-.7 4-2"/><circle cx="9" cy="10" r="0.6" fill="currentColor"/><circle cx="15" cy="10" r="0.6" fill="currentColor"/></symbol>
+    <symbol id="i-explain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h9M4 11h6M4 16h11"/><circle cx="17" cy="11" r="3.5"/><path d="M19.5 13.5L22 16"/></symbol>
+    <symbol id="i-cluster" viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="7" r="2"/><circle cx="9" cy="10" r="2"/><circle cx="5" cy="11.5" r="2"/><circle cx="17" cy="15" r="2"/><circle cx="19" cy="18.5" r="2"/><circle cx="15" cy="19" r="2"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-5 4 3 4-7 6 5"/><path d="M3 21h18"/></symbol>
+    <symbol id="i-house" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5"/><path d="M15 14.5c2.4-.3 4.6 1 5.5 4"/></symbol>
+    <symbol id="i-blocks" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><path d="M17 14v6M14 17h6"/></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></symbol>
+    <symbol id="i-devices" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="13" height="10" rx="1.5"/><rect x="16" y="8" width="5.5" height="11" rx="1.2"/><path d="M6 18h7"/></symbol>
+    <symbol id="i-venn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></symbol>
+    <symbol id="i-bug" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="6" width="10" height="14" rx="5"/><path d="M12 6V3M7 12H3M21 12h-4M7 16l-3 2M17 16l3 2M8 8L5 6M16 8l3-2"/></symbol>
+    <symbol id="i-table" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M3.5 14.5h17M10 4.5v15"/></symbol>
+    <symbol id="i-board" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/><path d="M7 9h6M7 12h4"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M10 2.5l1.7 5.3 5.3 1.7-5.3 1.7L10 16.5l-1.7-5.3L3 9.5l5.3-1.7z"/><path d="M18 13.5l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9z"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3.5 17.5a1.8 1.8 0 0 0 2.5 2.5l5.8-5.8a4 4 0 0 0 5.4-5.4l-2.4 2.4-2.1-.4-.4-2.1z"/></symbol>
+    <symbol id="i-flow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 6h4a3 3 0 0 1 3 3 3 3 0 0 0 3 3M7 18h4a3 3 0 0 0 3-3 3 3 0 0 1 3-3"/></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+  </defs>
+</svg>
+
+<main class="page">
+
+  <!-- Column 1: profile + hobbies -->
+  <div class="col">
+    <section class="profile" aria-label="About me">
+      <h1>Frederic (Qian) Dai</h1>
+      <div class="photo-wrap">
+        <img class="photo" src="photo.jpg" alt="Portrait of Frederic (Qian) Dai" width="188" height="188">
+        <img class="wave" src="wave-hand.png" alt="" aria-hidden="true" width="72" height="72">
+      </div>
+      <div class="links">
+        <a class="pill pill-li" href="https://www.linkedin.com/in/freddai/" target="_blank" rel="noopener noreferrer">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H11l-4.6 3.6c-.5.4-1.1 0-1.1-.6V16h.2A2.5 2.5 0 0 1 4 13.5z" fill="currentColor"/><circle cx="8.5" cy="9.5" r="1.3" fill="#EAF0FF"/><circle cx="12" cy="9.5" r="1.3" fill="#EAF0FF"/><circle cx="15.5" cy="9.5" r="1.3" fill="#EAF0FF"/></svg>
+          Say hi on LinkedIn
+        </a>
+        <a class="pill pill-gh" href="https://github.com/Fredericqd2044" target="_blank" rel="noopener noreferrer">
+          <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M13.5 5l-3 14"/></svg>
+          Peek at my GitHub
+        </a>
+      </div>
+      <div class="intro">
+        <h2 class="degree">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A47DD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z" fill="#E2E9FF"/><path d="M6 11v5c2 2 10 2 12 0v-5"/><path d="M22 9v6"/></svg>
+          Bachelor · Master · NYU
+        </h2>
+        <p>Hi everyone! I'm a Data Science student at NYU who loves building with databases, LLMs and real-world frontend and backend design. I've built AI agents for compliance consulting and hospital operations. Claude Code and Codex give me so much energy, and I can't wait to design more products~</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="hobbies-h" style="display: flex; flex-direction: column; gap: 12px">
+      <h2 class="h2" id="hobbies-h">Outside the code</h2>
+      <div class="hobbies">
+        <div class="hobby">
+          <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-linecap="round"><circle cx="12" cy="12" r="10" fill="#C8662A" stroke="#5A2E10" stroke-width="1.3"/><path d="M2 12h20M12 2v20" stroke="#5A2E10" stroke-width="1.3"/><path d="M5 4.9c2.9 2.9 2.9 11.3 0 14.2M19 4.9c-2.9 2.9-2.9 11.3 0 14.2" stroke="#5A2E10" stroke-width="1.3"/></svg>
+          <b>Basketball</b>
+          <span>When I'm away from my laptop, you'll probably find me on a basketball court.</span>
+        </div>
+        <div class="hobby">
+          <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-linecap="round"><circle cx="12" cy="12" r="10" fill="#C9DC3A" stroke="#8FA11F" stroke-width="1.2"/><path d="M4.6 5.3c3.6 3.7 3.6 9.7 0 13.4M19.4 5.3c-3.6 3.7-3.6 9.7 0 13.4" stroke="#ffffff" stroke-width="1.8"/></svg>
+          <b>Tennis</b>
+          <span>Learning one serve at a time.</span>
+        </div>
+        <div class="hobby">
+          <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M13.2 10.8L20 4" stroke="#7A4B22" stroke-width="2.4"/><rect x="18.2" y="1.6" width="4.2" height="3" rx="0.8" transform="rotate(45 20.3 3.1)" fill="#5C3818"/><path d="M11.5 8.5c-1.6-1.6-4.6-1.2-5.4 1.2-.3.9-1 1.4-1.9 1.6-2.3.6-2.9 3.6-1.2 5.3l3.4 3.4c1.7 1.7 4.7 1.1 5.3-1.2.2-.9.7-1.6 1.6-1.9 2.4-.8 2.8-3.8 1.2-5.4z" fill="#C68A4E" stroke="#7A4B22" stroke-width="1.2"/><circle cx="9.6" cy="14.4" r="1.7" fill="#3B2412"/></svg>
+          <b>Guitar</b>
+          <span>I play acoustic guitar and I'm learning electric.</span>
+        </div>
+        <div class="hobby">
+          <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2.5h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" fill="#1F2023"/><circle cx="12" cy="13" r="4" fill="#4A5160" stroke="#9AA3B5" stroke-width="1.2"/><circle cx="12" cy="13" r="1.6" fill="#1F2023"/><circle cx="18.3" cy="10.3" r="0.8" fill="#9AA3B5"/></svg>
+          <b>Photography</b>
+          <span>A few moments I've captured along the way.</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Column 2: timeline -->
+  <div class="col col-timeline">
+    <section aria-labelledby="timeline-h" style="display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap">
+        <h2 class="h2" id="timeline-h">Timeline</h2>
+        <span class="hint">Click a role to see details</span>
+      </div>
+      <ol class="timeline">
+        <li><button class="role" type="button" data-key="lindsay" aria-controls="d-lindsay" aria-pressed="false"><span class="date">Feb 2024</span><span class="title">Research Assistant at Lindsay Lab</span></button></li>
+        <li><button class="role" type="button" data-key="mit" aria-controls="d-mit" aria-pressed="false"><span class="date">June 2024</span><span class="title">Research Assistant at MIT Climate Sustainability Consortium</span></button></li>
+        <li><button class="role" type="button" data-key="durf" aria-controls="d-durf" aria-pressed="false"><span class="date">July 2024</span><span class="title">Lead Researcher at NYU DURF (Dean's Undergraduate Research Fund)</span></button></li>
+        <li><button class="role" type="button" data-key="mangrove" aria-controls="d-mangrove" aria-pressed="true"><span class="date">Sep 2025</span><span class="title">AI Engineer Intern at Mangrove AI</span></button></li>
+        <li><button class="role" type="button" data-key="rpga" aria-controls="d-rpga" aria-pressed="false"><span class="date">July 2026</span><span class="title">Full Stack Engineer at RPGA Studio</span></button></li>
+        <li><button class="role" type="button" data-key="ta" aria-controls="d-ta" aria-pressed="false"><span class="date">Sep 2026</span><span class="title">Teaching Assistant for Database Management and Analysis</span></button></li>
+        <li><button class="role" type="button" data-key="ta2" aria-controls="d-ta2" aria-pressed="false"><span class="date">Sep 2026</span><span class="title">Teaching Assistant for Vibe Coding</span></button></li>
+        <li><button class="role" type="button" data-key="langone" aria-controls="d-langone" aria-pressed="false"><span class="date">Now · Oct 2026</span><span class="title">AI Engineer Intern at NYU Langone Health</span></button></li>
+      </ol>
+    </section>
+  </div>
+
+  <!-- Column 3: detail + mind -->
+  <div class="col col-detail">
+    <div class="card" id="detail" aria-live="polite">
+
+      <article class="detail" id="d-mangrove">
+        <div class="meta"><span class="date">Sep 2025</span><span class="kind">Experience</span></div>
+        <h3>AI Engineer Intern · Mangrove AI</h3>
+        <p>At Mangrove, I built systems that make complex compliance information easier to work with. I designed vector database infrastructure, developed document chunking strategies, and built ETL pipelines that turn all kinds of document formats into structured, searchable data. A big part of my work was thinking about retrieval quality: how to organize information so the right context shows up reliably.</p>
+        <p>What I found most meaningful was building tools that actually support compliance consultants, not just a technical prototype. I worked on agentic systems that help people search, analyze and interact with regulatory information more efficiently. It made me want to keep building AI that is both technically strong and genuinely useful in real work.</p>
+        <p class="thanks">Huge thanks to my mentor, Alan, who taught me so much about generative AI and RAG design. I had a great time at Mangrove, and it inspired me to dig deeper into product and agent development.</p>
+        <div class="skills-label">Skills gained</div>
+        <ul class="chips">
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-vector"/></svg></span>Vector Database</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-chunks"/></svg></span>Document Chunking</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-pipe"/></svg></span>ETL Pipelines</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-docsearch"/></svg></span>Retrieval (RAG)</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-robot"/></svg></span>Agentic Systems</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>Compliance Workflows</li>
+        </ul>
+      </article>
+
+      <article class="detail" id="d-lindsay" hidden>
+        <div class="meta"><span class="date">Feb 2024</span><span class="kind">Research</span></div>
+        <h3>Research Assistant · Lindsay Lab</h3>
+        <p>Working closely with Professor Grace Lindsay and my coworker Chris Kong, I helped build a pipeline that pulls together more than five years of beaver dam locations and tracks how the environment around each dam changes over time, using measures like evapotranspiration (ET) and vegetation greenness (NDVI). Together, we built the analysis and a Streamlit app on top of it where anyone can upload new beaver dam files, run them through the same workflow, and explore visualizations of the changes around each dam.</p>
+        <p>What I love most about this project is that it turns environmental research into a tool people can keep using, to study how beaver dams may help landscapes become more resilient to floods and wildfires.</p>
+        <p class="thanks">A big thank you to Professor Grace Lindsay for welcoming me into her lab, guiding me through my first real research project, and showing me how data science can help answer meaningful environmental questions.</p>
+        <div class="skills-label">Skills gained</div>
+        <ul class="chips">
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-pipe"/></svg></span>Data Pipeline</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-app"/></svg></span>Streamlit</li>
+          <li class="chip"><span class="ic" style="--c: #2E8B57"><svg aria-hidden="true"><use href="#i-leaf"/></svg></span>NDVI</li>
+          <li class="chip"><span class="ic" style="--c: #2B7BB9"><svg aria-hidden="true"><use href="#i-drop"/></svg></span>ET</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-bars"/></svg></span>Data Visualization</li>
+        </ul>
+      </article>
+
+      <article class="detail" id="d-mit" hidden>
+        <div class="meta"><span class="date">June 2024</span><span class="kind">Research</span></div>
+        <h3>Research Assistant · MIT Climate Sustainability Consortium</h3>
+        <p>I worked closely with my mentor, Bram Van Der Kroft, a postdoctoral fellow at MIT, who guided and supported me throughout the project. Together we collected and organized more than 10 years of financial data from SEC filings, building a comprehensive dataset that covers companies across the U.S. What made this work especially meaningful to me was knowing the dataset could become a foundation for future research.</p>
+        <p>I also explored how NLP could be applied to this data, working with more than 50,000 financial news articles. I built preprocessing and embedding pipelines, fine-tuned BERT to classify sentiment, and used SHAP to understand what was driving the model's predictions.</p>
+        <div class="skills-label">Skills gained</div>
+        <ul class="chips">
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-docchart"/></svg></span>SEC Financial Data</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-download"/></svg></span>Data Collection</li>
+          <li class="chip"><span class="ic" aria-hidden="true">Aa</span>NLP</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-network"/></svg></span>Embeddings</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-sliders"/></svg></span>BERT Fine-tuning</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-smile"/></svg></span>Sentiment Analysis</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-explain"/></svg></span>SHAP Explainability</li>
+        </ul>
+      </article>
+
+      <article class="detail" id="d-durf" hidden>
+        <div class="meta"><span class="date">July 2024</span><span class="kind">Research</span></div>
+        <h3>Lead Researcher · NYU DURF</h3>
+        <p>After we both applied for research roles at MIT, Stephanie Guo and I realized we shared a love of using data science on real-world economic questions. So we applied to NYU's DURF program together to study how COVID-19 reshaped housing markets. Stephanie led the data cleaning, and I built the models and the analytical approach.</p>
+        <p>I built clustering and time-series models to compare how cities were disrupted and how they recovered. My favorite finding: cities far apart on the map could still move in surprisingly similar ways.</p>
+        <p class="thanks">Many thanks to Professor Gerald McIntyre, who supervised the project and later supported me with recommendation letters.</p>
+        <div class="skills-label">Skills gained</div>
+        <ul class="chips">
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-cluster"/></svg></span>Clustering</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-trend"/></svg></span>Time-Series Modeling</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-house"/></svg></span>Housing Market Analysis</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-people"/></svg></span>Research Collaboration</li>
+        </ul>
+      </article>
+
+      <article class="detail" id="d-rpga" hidden>
+        <div class="meta"><span class="date">July 2026</span><span class="kind">Experience</span></div>
+        <h3>Full Stack Engineer · RPGA Studio</h3>
+        <p>I was the Full Stack Engineer on <strong>LABEL-ization</strong>, a participatory public-art project from RPGA Studio's BeTheMuseum Fellowship, initiated by Zijun Zhao and Siyang Dai. It reimagined 10 New York City parks as community-curated museums, where visitors could find spots, drop labels on a map, upload photos and share how they see public space.</p>
+        <p>I turned that idea into a working app: the interactive map, geolocation and park boundaries, submissions and photo uploads, and the archive, built with React and geospatial tools. What I loved most was that the technology wasn't the point. It was a way to help people notice, interpret and add to the spaces around them.</p>
+        <div class="skills-label">Skills gained</div>
+        <ul class="chips">
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-blocks"/></svg></span>React</li>
+          <li class="chip"><span class="ic" style="--c: #2E8B57"><svg aria-hidden="true"><use href="#i-map"/></svg></span>Interactive Maps</li>
+          <li class="chip"><span class="ic" style="--c: #D9534F"><svg aria-hidden="true"><use href="#i-pin"/></svg></span>Geolocation</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-image"/></svg></span>Photo Uploads</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-devices"/></svg></span>Responsive Design</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-people"/></svg></span>Community Design</li>
+        </ul>
+      </article>
+
+      <article class="detail" id="d-ta" hidden>
+        <div class="meta"><span class="date">Sep 2026 – Present</span><span class="kind">Teaching</span></div>
+        <h3>Teaching Assistant · Database Management and Analysis</h3>
+        <p>As a TA for Data Management and Analysis (DMA), I work closely with students on SQL and database concepts. In office hours, I help them debug queries, make sense of joins, aggregation, filtering and relational logic, and figure out why a query returns something unexpected.</p>
+        <p>What I enjoy most is helping students break a complex query into small steps and understand the logic behind it, not just fix the syntax. Teaching this way has made me more thoughtful about explaining database ideas clearly and intuitively.</p>
+        <div class="skills-label">Skills gained</div>
+        <ul class="chips">
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-db"/></svg></span>SQL</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-venn"/></svg></span>Joins &amp; Aggregation</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-bug"/></svg></span>Query Debugging</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-table"/></svg></span>Relational Logic</li>
+          <li class="chip"><span class="ic" style="--c: #F2994A"><svg aria-hidden="true"><use href="#i-board"/></svg></span>Teaching &amp; Mentoring</li>
+        </ul>
+      </article>
+
+      <article class="detail" id="d-ta2" hidden>
+        <div class="meta"><span class="date">Sep 2026 – Present</span><span class="kind">Teaching</span></div>
+        <h3>Teaching Assistant · Vibe Coding</h3>
+        <p>As a TA for Vibe Coding, my favorite part is helping students turn their ideas into something that actually works. Often that means sitting with them through bugs, talking through their logic, and helping them find the next step on their own instead of just handing them the answer.</p>
+        <div class="skills-label">Skills gained</div>
+        <ul class="chips">
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-bulb"/></svg></span>Idea to Prototype</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-bug"/></svg></span>Debugging</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-sparkle"/></svg></span>AI-Assisted Coding</li>
+          <li class="chip"><span class="ic" style="--c: #F2994A"><svg aria-hidden="true"><use href="#i-board"/></svg></span>Teaching &amp; Mentoring</li>
+        </ul>
+      </article>
+
+      <article class="detail" id="d-langone" hidden>
+        <div class="meta"><span class="date">Now · Oct 2026</span><span class="kind">Experience</span></div>
+        <h3>AI Engineer Intern · NYU Langone Health</h3>
+        <p>I'm building an agentic AI system for MRI workflows. You describe what you need in plain language, and the system picks the right tools, sets up the parameters, and coordinates multi-step tasks across simulation, reconstruction and analysis.</p>
+        <p>What I enjoy most is seeing AI go beyond answering questions to actually carrying out complex technical work. Working in a hospital has also made me think harder about reliability, usability, and how AI can truly support real scientific and clinical work.</p>
+        <div class="skills-label">Skills gained</div>
+        <ul class="chips">
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-robot"/></svg></span>Agentic Systems</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-wrench"/></svg></span>Tool Calling</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-flow"/></svg></span>Workflow Orchestration</li>
+          <li class="chip"><span class="ic" style="--c: #5B4BB7"><svg aria-hidden="true"><use href="#i-scan"/></svg></span>MRI Workflows</li>
+          <li class="chip"><span class="ic"><svg aria-hidden="true"><use href="#i-chat"/></svg></span>Natural-Language Interfaces</li>
+          <li class="chip"><span class="ic" style="--c: #2E8B57"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>Reliable AI</li>
+        </ul>
+      </article>
+    </div>
+
+    <section class="card mind" aria-labelledby="mind-h">
+      <h2 class="h2" id="mind-h">
+        <svg role="img" aria-label="Thinking face" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12.5" cy="10.5" r="9" fill="#FFCB3D" stroke="#E0A21B" stroke-width="0.8"/><path d="M7.4 6.6c1-1.1 2.4-1.4 3.6-1" stroke="#6B4A12" stroke-width="1.1"/><path d="M14.4 6.9c.9-.4 2-.4 3 .1" stroke="#6B4A12" stroke-width="1.1"/><ellipse cx="9.4" cy="9.2" rx="1" ry="1.35" fill="#4A3410"/><ellipse cx="15.7" cy="9.4" rx="1" ry="1.35" fill="#4A3410"/><path d="M10.5 14.2c1.2-.5 2.6-.6 4.1-.2" stroke="#6B4A12" stroke-width="1.1"/><path d="M5.2 21.5c-.4-1.6.2-3 1.6-3.8l3.4-1.9c.9-.5 1.9.6 1.2 1.4l-1.6 1.6 4.4-.6c.9-.1 1.2 1.1.4 1.5l-4.6 2.3c-1.4.7-3.2.6-4.8-.5z" fill="#FFB627" stroke="#D98E0B" stroke-width="0.8"/></svg>
+        What's on my mind?
+      </h2>
+      <ul>
+        <li>Building a job application assistant that automatically tailors my resume and writes a cover letter for each role.</li>
+      </ul>
+    </section>
+  </div>
+</main>
+
+<footer>© 2026 Frederic (Qian) Dai</footer>
+
+<script>
+  (function () {
+    var buttons = document.querySelectorAll('.role');
+    var detail = document.getElementById('detail');
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var key = btn.getAttribute('data-key');
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+        document.querySelectorAll('.detail').forEach(function (d) { d.hidden = d.id !== 'd-' + key; });
+        if (window.matchMedia('(max-width: 1080px)').matches) {
+          detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  })();
+</script>
+</body>
+</html>
